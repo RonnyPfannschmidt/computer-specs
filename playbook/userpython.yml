@@ -1,0 +1,8 @@
+- name: set up recent python tools in the user home
+  hosts: all
+  become: true
+  tasks:
+  - name: ensure system pip
+    package:
+      name: python-pip
+      state: latest
