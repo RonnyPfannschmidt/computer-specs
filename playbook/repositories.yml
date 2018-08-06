@@ -1,0 +1,11 @@
+- name: set up recent python tools in the user home
+  hosts: all
+  become: true
+  tasks:
+  - name: ensure own placement
+    git:
+      repo: ssh://git@github.com/RonnyPfannschmidt/computer-specs.git
+      dest: ~/Projects/RonnyPfannschmidt/computer-specs
+      clone: no
+      update: no
+      
