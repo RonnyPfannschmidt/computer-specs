@@ -1,5 +1,5 @@
 #!/bin/bash
-([ -f .env/bin/activate ] || virtualenv -p python2 .env) &&
+([ -f .env/bin/activate ] || python3 -m venv .env) &&
 
 . .env/bin/activate &&
 
