@@ -1,7 +1,2 @@
 #!/bin/bash
-(
-  . ./quickstart-ansible.bash
-  set +e
-  ansible-playbook "${@}" -i inventory/local.ini
-  set -e
-)
+exec .env/bin/ansible-playbook "${@}" -i inventory/local.ini
