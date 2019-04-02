@@ -1,19 +1,17 @@
 #! .hacks/python
 
-import argparse
 import subprocess
-
-parser = argparse.ArgumentParser()
-parser.add_argument('playbook', default='playbook/all.yml', nargs="?")
+import click
 
 
-def main(args):
+@click.command()
+@click.argument('playbooks', type=click.Path(exists=True, dir_okay=False), nargs=-1)
+def main(playbooks):
     subprocess.call([
         'ansible-playbook',
         '-i', "inventory/local.ini",
-        args.playbook,
-    ])
+    ] + list(playbooks or ["playbook/all.yml"]))
 
 
 if __name__ == "__main__":
-    main(parser.parse_args())
+    main()
