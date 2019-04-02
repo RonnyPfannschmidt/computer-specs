@@ -1,0 +1,10 @@
+#!/bin/bash
+set -ex
+TC=$(buildah from  redmine)
+
+
+buildah run $TC -- git clone --branch 1.0.11 https://framagit.org/infopiiaf/redhopper.git plugins/redhopper
+buildah run $TC -- bundle install
+buildah run $TC -- bundle install Gemfile.lock.sqlite3
+buildah commit $TC redmine-with-redhopper
+buildah rm $TC

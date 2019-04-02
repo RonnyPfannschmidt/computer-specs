@@ -1,2 +1,3 @@
 - import_playbook: userpython.yml
 - import_playbook: repositories.yml
+- import_playbook: buildah.yml

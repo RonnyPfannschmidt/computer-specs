@@ -1,0 +1,10 @@
+- name: set up buildah for dealing with container building
+  hosts: all
+  become: true
+  tasks:
+  - name: install buildah
+    package:
+      name: 
+      - buildah
+      - podman
+      state: latest

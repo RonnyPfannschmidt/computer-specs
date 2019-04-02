@@ -1,0 +1,8 @@
+- name: fetch all buildah base images
+  hosts: local
+  tasks:
+  - name: fetch buildah item {{item}}
+    shell: buildah pull {{item}}
+    loop:
+    - fedora
+    - redmine
