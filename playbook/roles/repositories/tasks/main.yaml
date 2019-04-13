@@ -1,0 +1,6 @@
+- name: ensure own placement  
+  git:
+    repo: ssh://git@github.com/RonnyPfannschmidt/computer-specs.git
+    dest: ~/Projects/RonnyPfannschmidt/computer-specs
+    clone: no
+    update: no

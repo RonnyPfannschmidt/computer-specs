@@ -1,0 +1,6 @@
+- name: ensure updated system pip
+  package:
+    name:
+    - python-pip
+    - python-virtualenv
+    state: latest
