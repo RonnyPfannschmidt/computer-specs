@@ -9,3 +9,4 @@
   gather_facts: no
   roles:
   - repositories
+  - user_annex

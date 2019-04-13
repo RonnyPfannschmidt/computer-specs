@@ -1,0 +1,32 @@
+
+- name: create cachedir
+  file:
+    path: ~/.cache/setup/
+    state: directory
+    recurse: yes
+- name: fetch archive
+  
+  # http://git-annex.branchable.com/install/Linux_standalone/
+  get_url:
+    url: https://downloads.kitenet.net/git-annex/autobuild/amd64/git-annex-standalone-amd64.tar.gz
+    dest: ~/.cache/setup/git-annex-standalone-amd64.tar.gz
+    checksum: sha256:13782867cb653d67d177de704d1edc6c9ec9647b52f679d99900c470363f19ab
+  register: download_state
+
+- name: remove outdated git-annex
+  file:
+    path: ~/.local/git-annex.linux
+    state: absent
+  when: download_state.changed
+
+- name: unpack git-annex
+  unarchive:
+    remote_src: yes 
+    dest:  ~/.local
+    src: ~/.cache/setup/git-annex-standalone-amd64.tar.gz
+    creates: ~/.local/git-annex.linux
+- name: ensure symlink for git annex in local
+  file:
+    state: link
+    src: ~/.local/git-annex.linux/git-annex
+    path: ~/.local/bin/git-annex
