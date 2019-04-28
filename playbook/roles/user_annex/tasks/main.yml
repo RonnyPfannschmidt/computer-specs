@@ -10,7 +10,7 @@
   get_url:
     url: https://downloads.kitenet.net/git-annex/autobuild/amd64/git-annex-standalone-amd64.tar.gz
     dest: ~/.cache/setup/git-annex-standalone-amd64.tar.gz
-    checksum: sha256:13782867cb653d67d177de704d1edc6c9ec9647b52f679d99900c470363f19ab
+    checksum: sha256:d4e5619444f43253a207adb0d1a6e4c3397af166a6db49359e2d53b0dfa2dd93
   register: download_state
 
 - name: remove outdated git-annex
