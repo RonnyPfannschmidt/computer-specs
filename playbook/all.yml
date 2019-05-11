@@ -1,12 +1,11 @@
 - hosts: all
   become: yes
-  gather_facts: no
   roles:
   - userpython
   - buildah
+  - flathub
 
 - hosts: all
-  gather_facts: no
   roles:
   - repositories
   - user_annex
