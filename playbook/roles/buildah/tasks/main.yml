@@ -1,4 +1,4 @@
-- name: install buildah
+- name: install buildah and podman
   package:
     name: 
     - buildah

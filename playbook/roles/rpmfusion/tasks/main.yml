@@ -1,7 +1,7 @@
 - dnf:
     name:
       https://download1.rpmfusion.org/{{item}}/fedora/rpmfusion-{{item}}-release-{{ansible_distribution_version}}.noarch.rpm 
-  with_items:
+  loop:
   - free
   - nonfree
 

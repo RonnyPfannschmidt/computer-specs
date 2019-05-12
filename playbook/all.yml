@@ -3,7 +3,7 @@
   roles:
   - userpython
   - buildah
-  - flathub
+  - rpmfusion
   - enpass
 
 - hosts: all
