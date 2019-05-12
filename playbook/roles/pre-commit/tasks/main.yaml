@@ -1,0 +1,6 @@
+
+- name: ensure pre-commit
+  pip:
+    name: pre-commit
+    state: latest
+    extra_args: --user

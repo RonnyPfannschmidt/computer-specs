@@ -4,8 +4,10 @@
   - userpython
   - buildah
   - flathub
+  - enpass
 
 - hosts: all
   roles:
   - repositories
   - user_annex
+  - pre-commit
