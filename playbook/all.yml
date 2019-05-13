@@ -5,6 +5,7 @@
   - buildah
   - rpmfusion
   - enpass
+  - sublime
 
 - hosts: all
   roles:
