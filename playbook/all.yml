@@ -12,3 +12,4 @@
   - repositories
   - user_annex
   - pre-commit
+  - devpi
