@@ -40,3 +40,5 @@
     name: devpi.service
     enabled: yes
     state: started
+
+# - shell: devpi use --set-cfg http://localhost:3141/root/pypi
