@@ -7,5 +7,5 @@
     dest: /etc/yum.repos.d/
     checksum: sha256:b101f8ef7a18f944a9c450a6223750228c8b3da15eddae95bf6ed4391b1f3209
 - dnf:
-    name: sublime-text
+    name: [sublime-text, sublime-merge]
     state: latest
