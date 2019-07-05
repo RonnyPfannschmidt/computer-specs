@@ -1,0 +1,44 @@
+
+- file:
+    path: ~/.local/venvs
+    state: directory
+- name: ensure devpi venv
+  pip:
+    name: [ devpi-server, devpi-web, devpi-client]
+    state: latest
+    virtualenv: ~/.local/venvs/devpi
+
+- file:
+    dest: ~/.local/bin/devpi
+    src: ~/.local/venvs/devpi/bin/devpi
+    state: link
+
+- shell: ~/.local/venvs/devpi/bin/devpi-server --init
+  args:
+    creates: ~/.devpi/server/.serverversion
+
+- file:
+    path: ~/.config/systemd/user
+    state: directory
+
+- copy:
+    dest:  ~/.config/systemd/user/devpi.service
+    content: |
+        [Service]
+        Type=forking
+        PIDFile=%h/.devpi/server/.xproc/devpi-server/xprocess.PID
+        Restart=always
+        ExecStart=%h/.local/venvs/devpi/bin/devpi-server  --start
+        ExecStop=%h/.local/venvs/devpi/bin/devpi-server  --stop
+        SuccessExitStatus=SIGKILL
+
+        [Install]
+        WantedBy=multi-user.target
+
+- systemd:
+    scope: user
+    name: devpi.service
+    enabled: yes
+    state: started
+
+# - shell: devpi use --set-cfg http://localhost:3141/root/pypi

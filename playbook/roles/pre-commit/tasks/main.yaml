@@ -1,6 +1,14 @@
 
-- name: ensure pre-commit
+- file:
+    path: ~/.local/venvs
+    state: directory
+- name: ensure pre-commit venv
   pip:
     name: pre-commit
     state: latest
-    extra_args: --user
+    virtualenv: ~/.local/venvs/pre-commit
+- name: link pre-commit to main
+  file:
+    state: link
+    src: ~/.local/venvs/pre-commit/bin/pre-commit
+    dest: ~/.local/bin/pre-commit
