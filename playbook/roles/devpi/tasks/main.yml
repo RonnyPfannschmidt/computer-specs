@@ -33,7 +33,7 @@
         SuccessExitStatus=SIGKILL
 
         [Install]
-        WantedBy=multi-user.target
+        WantedBy=default.target
 
 - systemd:
     scope: user
