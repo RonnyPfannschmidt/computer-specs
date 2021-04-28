@@ -1,8 +1,0 @@
-- name: download repo file
-  get_url:
-    url: https://yum.enpass.io/enpass-yum.repo
-    dest: /etc/yum.repos.d/
-    checksum: sha256:153e18e10a8f0a665990f0521df5e873f9cbea74bb2cf05acebde069acd2adf1
-- dnf:
-    name: enpass
-    state: latest
