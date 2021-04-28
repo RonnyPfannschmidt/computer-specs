@@ -1,0 +1,4 @@
+- name: install latest annex
+  dnf:
+    name: git-annex
+    state: latest

@@ -1,5 +1,5 @@
 - name: install buildah and podman
-  package:
+  dnf:
     name: 
     - buildah
     - podman

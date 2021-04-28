@@ -7,6 +7,10 @@
     name: pre-commit
     state: latest
     virtualenv: ~/.local/venvs/pre-commit
+- name: ensure bin dir
+  file:
+    state: directory
+    dest: ~/.local/bin
 - name: link pre-commit to main
   file:
     state: link

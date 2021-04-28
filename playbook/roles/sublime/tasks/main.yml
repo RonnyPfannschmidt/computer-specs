@@ -9,3 +9,5 @@
 - dnf:
     name: [sublime-text, sublime-merge]
     state: latest
+
+- 

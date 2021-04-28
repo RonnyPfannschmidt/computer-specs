@@ -4,3 +4,4 @@
     - python-pip
     - python-virtualenv
     state: latest
+    use: dnf

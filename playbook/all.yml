@@ -1,15 +1,18 @@
 - hosts: all
   become: yes
   roles:
+  - sudoers
   - userpython
   - buildah
   - rpmfusion
-  - enpass
+ # - password-store
   - sublime
-
+  - git-annex
+  
+  
 - hosts: all
   roles:
   - repositories
-  - user_annex
+  #- user_annex
   - pre-commit
-  - devpi
+ 
