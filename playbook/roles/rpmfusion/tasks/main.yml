@@ -3,9 +3,8 @@
     name:
       https://download1.rpmfusion.org/{{item}}/fedora/rpmfusion-{{item}}-release-{{ansible_distribution_version}}.noarch.rpm 
     disable_gpg_check: yes
+    update_cache: yes
   loop:
   - free
   - nonfree
 
-#- yum_repository:
-  
