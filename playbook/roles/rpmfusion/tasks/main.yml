@@ -1,3 +1,4 @@
+# TODO: skip if exists
 - name: enable rpmfusion for {{ansible_distribution_version}} {{item}}
   dnf:
     name:
