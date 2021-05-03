@@ -1,0 +1,22 @@
+- dnf:
+    name:
+    - the_silver_searcher
+    - qtpass
+    - pass
+    - pass-otp
+    - Zim 
+    state: present
+
+- dnf:
+    name:
+    - openssl-devel
+    - crypto-devel
+    - lz4-devel
+    - libzstd-devel
+    - gcc
+    - gcc-c++
+    - redhat-rpm-config
+    - libacl-devel
+    - pkg-config
+    - python3-pkgconfig
+    state: present
