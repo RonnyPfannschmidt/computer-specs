@@ -73,19 +73,22 @@
   
   - name: 
     user:
-      name: ronny
+      name: "{{ lookup('env','USER') }}"
       append: yes
       groups: docker
 
 - dnf:
     name:
     - the_silver_searcher
+    - pipenv
     - qtpass
     - pass
     - pass-otp
     - Zim 
     - thunderbird
     - thunderbird-wayland
+    - krb5-devel
+    - libpq-devel
     state: present
 
 - dnf:
