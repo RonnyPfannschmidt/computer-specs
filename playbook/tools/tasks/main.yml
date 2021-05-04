@@ -1,3 +1,82 @@
+- name: gh cli
+  block:
+  - name: gh cli repo file
+    get_url:
+      dest: /etc/yum.repos.d/
+      checksum: sha256:7125d268492e1581147421c995447f11992d46de6764b407bb76cf44cf57457c
+      url: https://cli.github.com/packages/rpm/gh-cli.repo
+  - name: gh cli package
+    dnf:
+      name: gh
+      state: latest
+
+- name: vscode
+  block:
+
+  - name: vscode repo keys
+    rpm_key:
+      key: https://packages.microsoft.com/keys/microsoft.asc
+  - name: vscode repo file
+    copy:
+      dest: /etc/yum.repos.d/vscode.repo
+      content: |
+            [code]
+            name=Visual Studio Code
+            baseurl=https://packages.microsoft.com/yumrepos/vscode
+            enabled=1
+            gpgcheck=1
+            gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+  - name: vscode install
+    dnf:
+        name: code
+        state: latest
+
+
+- name: docker
+  block:
+  - name: take out system docker
+    dnf:
+      name: 
+      - docker
+      - docker-common
+      - docker-selinux
+      - docker-engine-selinux
+      - docker-engine
+      state: absent
+  - name: docker ce repo file
+    get_url:
+      dest: /etc/yum.repos.d/
+      checksum: sha256:d19388de1ab46e0547d04c576014bc857a60cd4d5ff37f50709b8337c88672a9
+      url: https://download.docker.com/linux/fedora/docker-ce.repo
+  - name: docker ce install
+    dnf:
+      name: docker-ce
+      state: latest
+
+
+  - file:
+      name: /etc/docker
+      state: directory
+  - name: docker btrfs backend
+    copy:
+      dest: /etc/docker/daemon.json
+      content: |
+        {
+          "storage-driver": "btrfs"
+        }
+
+  - name: docker service
+    systemd:
+      name: docker
+      enabled: yes
+      state: started
+  
+  - name: 
+    user:
+      name: ronny
+      append: yes
+      groups: docker
+
 - dnf:
     name:
     - the_silver_searcher
@@ -22,3 +101,9 @@
     - pkg-config
     - python3-pkgconfig
     state: present
+
+
+    
+    
+# - yum_repository:
+   
