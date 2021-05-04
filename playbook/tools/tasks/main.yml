@@ -5,6 +5,8 @@
     - pass
     - pass-otp
     - Zim 
+    - thunderbird
+    - thunderbird-wayland
     state: present
 
 - dnf:
