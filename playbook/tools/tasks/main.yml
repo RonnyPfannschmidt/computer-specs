@@ -89,6 +89,7 @@
     - thunderbird-wayland
     - krb5-devel
     - libpq-devel
+    - gitk
     state: present
 
 - dnf:
