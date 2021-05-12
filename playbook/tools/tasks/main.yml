@@ -107,7 +107,9 @@
     state: present
 
 
-    
+- dnf:
+    name: maven
+    state: present    
     
 # - yum_repository:
    
