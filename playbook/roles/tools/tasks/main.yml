@@ -11,6 +11,7 @@
       state: latest
 
 - name: vscode
+  when: false
   block:
 
   - name: vscode repo keys
@@ -29,7 +30,7 @@
   - name: vscode install
     dnf:
         name: code
-        state: latest
+        state: absent
 
 
 - name: docker
@@ -84,7 +85,8 @@
     - qtpass
     - pass
     - pass-otp
-    - Zim 
+    - Zim
+    - ditaa
     - thunderbird
     - thunderbird-wayland
     - krb5-devel

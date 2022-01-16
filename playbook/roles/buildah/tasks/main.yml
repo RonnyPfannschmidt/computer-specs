@@ -3,4 +3,4 @@
     name: 
     - buildah
     - podman
-    state: latest
+    state: present
